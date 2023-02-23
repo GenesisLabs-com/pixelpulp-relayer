@@ -39,9 +39,8 @@ export const fetchOrdersByDateCreated = async (createdAfter: string = "") => {
               "Content-Type": "application/json",
               accept: "application/json",
               "cb-nft-api-token": config.coinbaseApiKey,
-              "user-agent":
-                "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
-            },
+              "user-agent":config.userAgent,
+              },
             timeout: 10000,
           }
         : // Skip including the API key on Rinkeby or else the request will fail
@@ -147,8 +146,7 @@ export const fetchOrdersByPageToken = async (side: "sell" | "buy", pageToken: st
               "Content-Type": "application/json",
               accept: "application/json",
               "cb-nft-api-token": config.coinbaseApiKey,
-              "user-agent":
-                "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+              "user-agent":config.userAgent,
             },
             timeout: 10000,
           }
