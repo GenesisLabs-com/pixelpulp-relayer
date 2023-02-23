@@ -10,7 +10,6 @@ export const config = {
   elementApiKey: String(process.env.ELEMENT_API_KEY),
   coinbaseApiKey: String(process.env.COINBASE_API_KEY),
   infinityApiKey: String(process.env.INFINITY_API_KEY),
-  flowApiKey: String(process.env.FLOW_API_KEY),
 
   doBackgroundWork: Boolean(Number(process.env.DO_BACKGROUND_WORK)),
   doBackfillWork: Boolean(Number(process.env.DO_BACKFILL_WORK)),
@@ -19,4 +18,6 @@ export const config = {
 
   databaseUrl: String(process.env.DATABASE_URL),
   redisUrl: String(process.env.REDIS_URL),
+  userAgent: String(process.env.USER_AGENT),
+  flowApiKey:String(process.env.FLOW_API_KEY),
 };

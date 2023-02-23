@@ -33,8 +33,7 @@ export const fetchOrders = async (side: "sell" | "buy", listedAfter = 0, listedB
       const response = await axios.get(url, {
         headers: {
           "x-api-key": config.elementApiKey,
-          "user-agent":
-            "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+          "user-agent":config.userAgent,
         },
         timeout: 10000,
       });
