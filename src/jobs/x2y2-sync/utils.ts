@@ -32,8 +32,7 @@ export const fetchOrdersByDateCreated = async (side: "sell" | "buy", createdAfte
       const response = await axios.get(url, {
         headers: {
           "x-api-key": config.x2y2ApiKey,
-          "user-agent":
-            "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+          "user-agent":config.userAgent,
         },
         timeout: 20000,
       });
@@ -128,8 +127,7 @@ export const fetchOrdersByCursor = async (side: "sell" | "buy", cursor: string =
     const response = await axios.get(url, {
       headers: {
         "x-api-key": config.x2y2ApiKey,
-        "user-agent":
-          "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "user-agent":config.userAgent,
       },
       timeout: 20000,
     });

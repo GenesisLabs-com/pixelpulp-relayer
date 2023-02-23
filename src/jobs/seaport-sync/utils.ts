@@ -39,13 +39,11 @@ export const fetchOrders = async (side: "sell" | "buy", apiKey = "") => {
     try {
       const response = await axios.get(url, {
         headers: {
-          "user-agent":
-            "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
-          "x-api-key": apiKey || config.realtimeOpenseaApiKey,
+          "user-agent":config.userAgent,
         },
         timeout: 20000,
       });
-
+      
       const orders: SeaportOrder[] = response.data.orders;
       const parsedOrders: Sdk.Seaport.Order[] = [];
       cursor = response.data.next;
@@ -177,8 +175,7 @@ export const fetchAllOrders = async (
   try {
     const response = await axios.get(url, {
       headers: {
-        "user-agent":
-          "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+        "user-agent":config.userAgent,
         "x-api-key": config.backfillOpenseaApiKey,
       },
       timeout: 20000,
@@ -191,7 +188,7 @@ export const fetchAllOrders = async (
       "fetch_all_orders",
       `Seaport Fetch all orders received ${orders.length} orders fromTimestamp=${formatFromTimestamp}, toTimestamp=${formatToTimestamp}, cursor=${cursor}`
     );
-
+  
     const values: any[] = [];
 
     const handleOrder = async (order: SeaportOrder) => {

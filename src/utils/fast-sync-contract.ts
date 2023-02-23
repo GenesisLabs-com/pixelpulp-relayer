@@ -33,8 +33,7 @@ export const fastSyncContract = async (
             ? {
                 headers: {
                   "x-api-key": config.backfillOpenseaApiKey,
-                  "user-agent":
-                    "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
+                  "user-agent":config.userAgent,
                 },
                 timeout: 5000,
               }
